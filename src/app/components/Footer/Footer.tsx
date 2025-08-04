@@ -28,25 +28,25 @@ const Footer = () => {
 
         {/* Quick Links */}
         <div>
-          {/* <h3 className="text-lg font-semibold mb-4 text-white">Quick Links</h3>
+          <h3 className="text-lg font-semibold mb-4 text-white">Quick Links</h3>
           <ul className="space-y-2 text-gray-400">
             <li><Link href="/" className="hover:text-white">Home</Link></li>
             <li><Link href="/about-us" className="hover:text-white">About Us</Link></li>
             <li><Link href="/services" className="hover:text-white">Services</Link></li>
             <li><Link href="/contact-us" className="hover:text-white">Contact</Link></li>
             <li><Link href="/privacy-policy" className="hover:text-white">Privacy Policy</Link></li>
-          </ul> */}
+          </ul>
         </div>
 
         {/* Solutions */}
         <div>
-          {/* <h3 className="text-lg font-semibold mb-4 text-white">Solutions</h3>
+          <h3 className="text-lg font-semibold mb-4 text-white">Solutions</h3>
           <ul className="space-y-2 text-gray-400">
             <li><Link href="#" className="hover:text-white">UI Management</Link></li>
             <li><Link href="#" className="hover:text-white">HR Consulting</Link></li>
             <li><Link href="#" className="hover:text-white">Tax Recovery</Link></li>
             <li><Link href="#" className="hover:text-white">Claims Support</Link></li>
-          </ul> */}
+          </ul>
         </div>
 
         {/* Certificate or Badge */}

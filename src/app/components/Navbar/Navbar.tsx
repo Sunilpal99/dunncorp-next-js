@@ -36,9 +36,9 @@ const Navbar = () => {
           <div className="relative group">
             <button className="text-gray-300 hover:text-white">Solutions ▾</button>
             <div className="absolute hidden group-hover:block bg-gray-700 text-sm rounded mt-1 z-50">
-              <Link href="/unemployment-cost-control" className="block px-4 py-2 hover:bg-gray-600">Unemployment Cost Control</Link>
-              <Link href="/contingency-refunds" className="block px-4 py-2 hover:bg-gray-600">Contingency Refunds</Link>
-              <Link href="/human-resources" className="block px-4 py-2 hover:bg-gray-600">Human Resources</Link>
+              <Link href="/solutions/unemployment-cost-control" className="block px-4 py-2 hover:bg-gray-600">Unemployment Cost Control</Link>
+              <Link href="/solutions/contingency-refunds" className="block px-4 py-2 hover:bg-gray-600">Contingency Refunds</Link>
+              <Link href="/solutions/human-resources" className="block px-4 py-2 hover:bg-gray-600">Human Resources</Link>
             </div>
           </div>
 

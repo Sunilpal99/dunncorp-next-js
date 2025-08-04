@@ -54,7 +54,7 @@ const Home = () => {
       </section>
       <section className="py-16 bg-white text-center px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-blue-900">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#005595]">
             Customized software designed with our clients' needs in mind.
           </h2>
           <p className="mt-2 text-gray-700 text-lg">
@@ -73,13 +73,13 @@ const Home = () => {
       </section>
       <section className="py-16 bg-gray-100 text-center px-4">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-blue-900 mb-4">Stay Informed with Our Latest Insights</h2>
+          <h2 className="text-3xl font-bold text-[#397bad] mb-4">Stay Informed with Our Latest Insights</h2>
           <p className="text-gray-700 mb-6">
             Explore articles, tips, and updates on unemployment cost control, HR solutions, and more.
           </p>
           <a
             href="/blog"
-            className="inline-block bg-blue-700 text-white font-semibold py-3 px-6 rounded hover:bg-blue-800 transition"
+            className="inline-block bg-[#397bad] text-white font-semibold py-3 px-6 rounded hover:bg-blue-800 transition"
           >
             View Blog
           </a>
