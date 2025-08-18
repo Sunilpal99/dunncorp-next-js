@@ -46,7 +46,7 @@ const Navbar = () => {
           <div className="relative group">
             <button className="text-gray-300 hover:text-white">Services ▾</button>
             <div className="absolute hidden group-hover:block bg-gray-700 text-sm rounded mt-1 z-50">
-              <Link href="/employment-verification" className="block px-4 py-2 hover:bg-gray-600">Employment Verification</Link>
+              <Link href="/services/employment-verification" className="block px-4 py-2 hover:bg-gray-600">Employment Verification</Link>
               {/* Add more services if needed */}
             </div>
           </div>
