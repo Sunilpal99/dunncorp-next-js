@@ -52,9 +52,9 @@ const Navbar = () => {
           </div>
 
           <Link href="/resources" className="text-gray-300 hover:text-white">Resources</Link>
-          <Link href="/blog" className="text-gray-300 hover:text-white">Blog</Link>
+          {/* <Link href="/blog" className="text-gray-300 hover:text-white">Blog</Link> */}
           <Link href="/contact-us" className="text-gray-300 hover:text-white">Contact Us</Link>
-          <Link href="/portal" className="text-gray-300 hover:text-white">Client Portal</Link>
+          {/* <Link href="/portal" className="text-gray-300 hover:text-white">Client Portal</Link> */}
         </nav>
       </div>
     </header>
