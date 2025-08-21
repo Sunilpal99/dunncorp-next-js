@@ -1,9 +1,10 @@
 "use client";
+import Layout from "@/app/secondcomponents";
 import Image from "next/image";
 
 const UnemploymentCostControl = () => {
     return (
-      <>
+      <Layout>
         {/* Hero Section */}
         <section className="relative h-[500px] bg-cover bg-center bg-no-repeat flex items-center justify-center"
           style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/ucc-banner-new.jpg')" }}>
@@ -240,7 +241,7 @@ const UnemploymentCostControl = () => {
             </div>
           </div>
         </section>
-      </>
+      </Layout>
     );
   };
   

@@ -1,4 +1,5 @@
 "use client";
+import Layout from "@/app/secondcomponents";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -41,7 +42,7 @@ const HumanResources = () => {
   ];
 
     return (
-      <>
+      <Layout>
         {/* Hero Section */}
         <section className="relative h-[500px] bg-cover bg-center bg-no-repeat flex items-center justify-center"
           style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/contingency-refunds-banner-new.jpg')" }}>
@@ -218,7 +219,7 @@ for Employers" className="w-7 h-7 color-white" />
         </section>
 
     
-      </>
+      </Layout>
     );
   };
   

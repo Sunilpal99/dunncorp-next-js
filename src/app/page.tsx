@@ -3,6 +3,9 @@ import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import Image from "next/image";
 
+import Layout from "./secondcomponents";
+
+
 
 const Home = () => {
 
@@ -15,8 +18,8 @@ const Home = () => {
     },
   });
   return (
+     <Layout>
 
-    <>
       <section className="h-[500px] bg-cover bg-center bg-no-repeat flex items-center justify-center" style={{ backgroundImage: "linear-gradient(rgb(0 0 0 / 35%), rgba(0, 0, 0, 0.6)), url('/images/banner-home-new.jpg')" }} >
         <div className="bg-black/50 text-white p-6 rounded-md text-center">
           <h1 className="text-4xl font-bold">With Dunn, you take control.</h1>
@@ -122,11 +125,10 @@ const Home = () => {
 
         </div>
       </section>
+     </Layout>
 
 
 
-
-    </>
 
 
 

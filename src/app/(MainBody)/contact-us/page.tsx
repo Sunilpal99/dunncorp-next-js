@@ -1,9 +1,10 @@
 "use client";
+import Layout from "@/app/secondcomponents";
 import Image from "next/image";
 
 const Contact = () => {
   return (
-    <>
+    <Layout>
       {/* Hero Section */}
       <section
         className="relative h-[500px] bg-cover bg-center bg-no-repeat flex items-center justify-center"
@@ -163,7 +164,7 @@ const Contact = () => {
           </div>
         </form>
       </section>
-    </>
+    </Layout>
   );
 };
 

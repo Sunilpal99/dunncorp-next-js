@@ -16,13 +16,13 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Dunn Corporate Resources | Unemployment Cost Control",
-  description: "Expert unemployment claims management, HR consulting & tax refund recovery. Get dedicated support & proven results with our custom software solutions.",
-  icons: {
-    icon: "/favicon.ico", // ✅ Make sure this line is present
-  },
-};
+// export const metadata: Metadata = {
+//   title: "Dunn Corporate Resources | Unemployment Cost Control",
+//   description: "Expert unemployment claims management, HR consulting & tax refund recovery. Get dedicated support & proven results with our custom software solutions.",
+//   icons: {
+//     icon: "/favicon.ico", 
+//   },
+// };
 
 export default function RootLayout({
   children,
@@ -32,9 +32,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} >
-        <Navbar />
+        {/* <Navbar /> */}
         {children}
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );
