@@ -1,8 +1,35 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 
 export default function SignupPage() {
+  // Step 1: State banai
+  const[formData,setFormData] = useState({
+    name : "",
+    email : "",
+    password : "",
+    confirmPassword : "",
+  })
+  // Step 2: Change handle karna
+   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+  // Step 3: Submit handle karna
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault(); // page reload na ho
+
+    // simple validation
+    if (formData.password !== formData.confirmPassword) {
+      alert("Passwords do not match ❌");
+      return;
+    }
+
+    // abhi ke liye console me data print karenge
+    console.log("Form submitted ✅", formData);
+    alert("Signup form submitted successfully!");
+  };
+
   return (
     <section className="py-20 bg-gray-100">
       <div className="max-w-md mx-auto px-4">
@@ -10,15 +37,15 @@ export default function SignupPage() {
           <h1 className="text-2xl font-bold text-[#005595] mb-1">Create Account</h1>
           <p className="text-sm text-gray-600 mb-6">Sign up to get started.</p>
 
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={handleSubmit}>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Full Name
               </label>
               <input
-                type="text"
+                type="text" name="name" value={formData.name} onChange={handleChange}
                 className="w-full rounded border border-gray-300 px-3 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#397bad]"
-                placeholder="John Doe"
+                placeholder="John Doe" required
               />
             </div>
 
@@ -27,9 +54,9 @@ export default function SignupPage() {
                 Email
               </label>
               <input
-                type="email"
+                type="email" name="email" value={formData.email} onChange={handleChange}
                 className="w-full rounded border border-gray-300 px-3 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#397bad]"
-                placeholder="you@company.com"
+                placeholder="you@company.com" required
               />
             </div>
 
@@ -38,9 +65,9 @@ export default function SignupPage() {
                 Password
               </label>
               <input
-                type="password"
+                type="password" name="password" value={formData.password} onChange={handleChange}
                 className="w-full rounded border border-gray-300 px-3 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#397bad]"
-                placeholder="••••••••"
+                placeholder="••••••••" required
               />
             </div>
 
@@ -49,9 +76,9 @@ export default function SignupPage() {
                 Confirm Password
               </label>
               <input
-                type="password"
+                type="password" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange}
                 className="w-full rounded border border-gray-300 px-3 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#397bad]"
-                placeholder="••••••••"
+                placeholder="••••••••" required
               />
             </div>
 

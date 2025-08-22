@@ -1,8 +1,49 @@
 "use client";
 import Layout from "@/app/secondcomponents";
 import Image from "next/image";
+import { useState } from "react";
+
 
 const Contact = () => {
+  function handleSubmit (e: { preventDefault: () => void; }) {
+    e.preventDefault();
+    
+    if(!companyName || !contactName || !phone || !email || !service || !message) return (alert("All the fields are required"))
+      
+    
+    // console.log({
+    //   "your Company Name" : companyName,
+    //   "your Contact Name" : contactName,
+    //   "your Phone" : phone,
+    //   "your Email" : email,
+    //   "your Service" : service,
+    //   "your Message" : message,
+    // })
+    
+    // Save state values to localStorage
+    localStorage.setItem("companyName", companyName);
+    localStorage.setItem("contactName", contactName);
+    localStorage.setItem("phone", phone);
+    localStorage.setItem("email", email);
+    localStorage.setItem("service", service);
+    localStorage.setItem("message", message);
+    
+    alert("Form Submitted successfully!");
+
+    setCompanyName("");
+    setContactName("");
+    setPhone("");
+    setEmail("");
+    setService("");
+    setMessage("");
+  }
+  const [companyName, setCompanyName] = useState("");
+  const [contactName, setContactName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [service, setService] = useState("");
+  const [message, setMessage] = useState("");
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -62,7 +103,7 @@ const Contact = () => {
           Please fill out a form and a team member will contact you as soon as possible.
         </p>
 
-        <form method="post" id="contact-form" className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
               <label htmlFor="company-name">
@@ -72,7 +113,9 @@ const Contact = () => {
                 type="text"
                 id="company-name"
                 name="company-name"
-                required
+                value={companyName}
+                onChange={(e) => setCompanyName(e.target.value)}
+                
                 autoComplete="organization"
                 placeholder="Your company"
                 className="w-full border rounded px-3 py-2"
@@ -86,7 +129,9 @@ const Contact = () => {
                 type="text"
                 id="contact-name"
                 name="contact-name"
-                required
+                value={contactName}
+                onChange={(e) => setContactName(e.target.value)}
+                
                 autoComplete="name"
                 placeholder="Your full name"
                 className="w-full border rounded px-3 py-2"
@@ -102,9 +147,11 @@ const Contact = () => {
               <input
                 type="tel"
                 name="phone"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
                 id="phone"
                 maxLength={15}
-                required
+                
                 inputMode="tel"
                 autoComplete="tel"
                 pattern="[0-9+\-()\s]{7,}"
@@ -119,8 +166,10 @@ const Contact = () => {
               <input
                 type="email"
                 name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 id="email"
-                required
+                
                 autoComplete="email"
                 placeholder="you@example.com"
                 className="w-full border rounded px-3 py-2"
@@ -136,7 +185,9 @@ const Contact = () => {
               type="text"
               id="what-service"
               name="what-service"
-              required
+              value={service}
+              onChange={(e) => setService(e.target.value)}
+              
               placeholder="e.g. Unemployment Cost Control"
               className="w-full border rounded px-3 py-2"
             />
@@ -146,6 +197,9 @@ const Contact = () => {
             <label htmlFor="message">Message</label>
             <textarea
               name="message"
+              // typeof="text"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
               cols={40}
               rows={5}
               placeholder="Message"

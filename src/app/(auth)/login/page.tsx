@@ -6,19 +6,35 @@ import Link from "next/link";
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  async function handleSubmit(e: FormEvent) {
+
+
+
+
+
+  // const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // async function handleSubmit(e: FormEvent) {
+  function handleSubmit(e: FormEvent) {
     e.preventDefault();
     if (!email || !password) return alert("Email and password are required.");
 
-    try {
-      setIsSubmitting(true);
-      await new Promise((r) => setTimeout(r, 800)); // demo delay
-      alert("Login submitted! (Demo)");
-    } finally {
-      setIsSubmitting(false);
-    }
+    localStorage.setItem("Email", email);    
+    localStorage.setItem("Set Password", password);
+
+    alert("Login successful!");
+
+    setEmail("");
+    setPassword("");
+
+
+    // try {
+    //   setIsSubmitting(true);
+    //   await new Promise((r) => setTimeout(r, 800));
+    //   alert("Login submitted! (Demo)");
+    // } finally {
+    //   setIsSubmitting(false);
+    // }
   }
 
   return (
@@ -33,10 +49,11 @@ export default function LoginPage() {
               <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
               <input
                 type="email"
+                name="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@company.com"
-                required
+                
                 className="w-full rounded border px-3 py-2"
               />
             </div>
@@ -45,15 +62,16 @@ export default function LoginPage() {
               <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
               <input
                 type="password"
+                name="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                required
+                
                 className="w-full rounded border px-3 py-2"
               />
             </div>
 
-            <div className="flex items-center justify-between">
+            {/* <div className="flex items-center justify-between">
               <label className="inline-flex items-center gap-2 text-sm text-gray-700">
                 <input
                   type="checkbox"
@@ -64,15 +82,23 @@ export default function LoginPage() {
               <Link href="#" className="text-sm text-[#397bad] hover:underline">
                 Forgot password?
               </Link>
-            </div>
+            </div> */}
 
-            <button
+            {/* <button
               type="submit"
               disabled={isSubmitting}
               className="w-full bg-[#397bad] text-white font-semibold py-2.5 rounded hover:bg-blue-800 transition disabled:opacity-60"
             >
               {isSubmitting ? "Signing in..." : "Sign in"}
-            </button>
+            </button> */}
+            <div>
+              <input
+                className="w-full bg-[#397bad] text-center text-white font-semibold py-2.5 rounded hover:bg-blue-800 transition disabled:opacity-60"
+                type="submit"
+                value="Sign In"
+                name="submit-btn"
+              />
+            </div>
           </form>
 
           <p className="mt-6 text-center text-sm text-gray-600">
