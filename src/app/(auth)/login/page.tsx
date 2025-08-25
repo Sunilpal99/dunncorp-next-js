@@ -2,8 +2,11 @@
 
 import { useState, FormEvent } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+
 
 export default function LoginPage() {
+   const router = useRouter(); // ✅ add this
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -19,22 +22,19 @@ export default function LoginPage() {
     e.preventDefault();
     if (!email || !password) return alert("Email and password are required.");
 
-    localStorage.setItem("Email", email);    
-    localStorage.setItem("Set Password", password);
+     // Check for specific credentials
+  if (email === "sunilpal05399@gmail.com" && password === "asdf") {
+    localStorage.setItem("Email", email);
+    localStorage.setItem("Password", password);
 
     alert("Login successful!");
-
     setEmail("");
     setPassword("");
 
-
-    // try {
-    //   setIsSubmitting(true);
-    //   await new Promise((r) => setTimeout(r, 800));
-    //   alert("Login submitted! (Demo)");
-    // } finally {
-    //   setIsSubmitting(false);
-    // }
+    router.push("/home"); // Only redirect if credentials match
+  } else {
+    alert("Invalid email or password.");
+  }
   }
 
   return (

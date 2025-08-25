@@ -2,9 +2,18 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const router = useRouter();
+
+  const handleLogout = () =>{
+    localStorage.removeItem("Email")
+    localStorage.removeItem("Set Password")
+
+    router.push("/login")
+  }
 
   return (
     <header className="bg-gray-800 text-white shadow-md">
@@ -54,7 +63,13 @@ const Navbar = () => {
           <Link href="/resources" className="text-gray-300 hover:text-white">Resources</Link>
           {/* <Link href="/blog" className="text-gray-300 hover:text-white">Blog</Link> */}
           <Link href="/contact-us" className="text-gray-300 hover:text-white">Contact Us</Link>
-          {/* <Link href="/portal" className="text-gray-300 hover:text-white">Client Portal</Link> */}
+          {/* Logout Button */}
+          <button
+            onClick={handleLogout}
+            className="bg-red-500 hover:bg-red-600 text-white font-semibold py-1.5 px-3 rounded transition-colors duration-300"
+          >
+            Logout
+          </button>
         </nav>
       </div>
     </header>

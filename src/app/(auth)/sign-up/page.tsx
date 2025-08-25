@@ -4,30 +4,30 @@ import Link from "next/link";
 import { useState } from "react";
 
 export default function SignupPage() {
-  // Step 1: State banai
-  const[formData,setFormData] = useState({
-    name : "",
-    email : "",
-    password : "",
-    confirmPassword : "",
-  })
-  // Step 2: Change handle karna
-   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-  // Step 3: Submit handle karna
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault(); // page reload na ho
+  
+  const[name,setName] = useState("");
+  const[email,setEmail] = useState("");
+  const[password,setPassword] = useState("");
+  const[confirmPassword,setConfirmPassword] = useState("");
 
-    // simple validation
-    if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match ❌");
-      return;
-    }
+  function handleSubmit (e: { preventDefault: () => void; }) {
+    e.preventDefault(); 
 
-    // abhi ke liye console me data print karenge
-    console.log("Form submitted ✅", formData);
+    if(!name || !email || !password || !email || !confirmPassword ) return (alert("All the fields are required"))
+    if(password !== confirmPassword) return (alert("password and confirm password is not same"))
+
+    
+    localStorage.setItem("name",name)
+    localStorage.setItem("email",email)
+    localStorage.setItem("password",password)
+    localStorage.setItem("confirmPassword",confirmPassword)
+
     alert("Signup form submitted successfully!");
+
+    setName("");
+    setEmail("");
+    setPassword("");
+    setConfirmPassword("");
   };
 
   return (
@@ -43,7 +43,7 @@ export default function SignupPage() {
                 Full Name
               </label>
               <input
-                type="text" name="name" value={formData.name} onChange={handleChange}
+                type="text" name="name" value={name} onChange={(e) => setName(e.target.value)}
                 className="w-full rounded border border-gray-300 px-3 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#397bad]"
                 placeholder="John Doe" required
               />
@@ -54,7 +54,7 @@ export default function SignupPage() {
                 Email
               </label>
               <input
-                type="email" name="email" value={formData.email} onChange={handleChange}
+                type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)}
                 className="w-full rounded border border-gray-300 px-3 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#397bad]"
                 placeholder="you@company.com" required
               />
@@ -65,7 +65,7 @@ export default function SignupPage() {
                 Password
               </label>
               <input
-                type="password" name="password" value={formData.password} onChange={handleChange}
+                type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)}
                 className="w-full rounded border border-gray-300 px-3 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#397bad]"
                 placeholder="••••••••" required
               />
@@ -76,7 +76,7 @@ export default function SignupPage() {
                 Confirm Password
               </label>
               <input
-                type="password" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange}
+                type="password" name="confirmPassword" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}
                 className="w-full rounded border border-gray-300 px-3 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#397bad]"
                 placeholder="••••••••" required
               />
